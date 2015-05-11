@@ -1,0 +1,19 @@
+<h1> Add a task to your list </h1>
+
+<form action ="/lists/<%=@id%>" method="post">
+  <div class="form-group">
+    <label for="description">Task Description</label>
+    <input id="description" name="description" type="text" class="form-control" placeholder="ex: Do Epicodus Homework">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add Task</button>
+</form>
+
+Here are all the tasks:
+<ul>
+  <%@list.tasks.each do |task| %>
+  <li><%= task.description %></li>
+  <%end %>
+</ul>
+
+<a href="/">Home</a>

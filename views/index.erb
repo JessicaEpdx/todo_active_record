@@ -1,0 +1,17 @@
+<h1>Add a List</h1>
+
+<form action ="/" method="post">
+  <div class="form-group">
+    <label for="name">List Name</label>
+    <input id="name" name="name" type="text" class="form-control" placeholder="ex: School Work">
+  </div>
+
+  <button type="submit" class="btn btn-success">Add List</button>
+</form>
+
+Here are all the lists:
+<ul>
+<%@all_lists.each do |list| %>
+<li><a href="lists/<%= list.id %>"><%= list.name %></a></li>
+<%end %>
+</ul>

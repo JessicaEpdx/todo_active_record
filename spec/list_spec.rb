@@ -43,6 +43,24 @@ describe("List") do
     end
   end
 
+  describe("#tasks") do
+    it("returns all tasks from list") do
+      test_list = List.new({:name => "Tony", :id => nil})
+      test_list.save()
+      task = Task.new({:description => "Whatever", :list_id => test_list.id, :id => nil})
+      task.save
+      expect(test_list.tasks()).to(eq([task]))
+    end
+  end
+
+  describe('.find') do
+    it("finds a list by id") do
+      test_list = List.new({:name => "Tony", :id => nil})
+      test_list.save()
+      expect(List.find(test_list.id)).to(eq(test_list))
+
+    end
+  end
 
 
 

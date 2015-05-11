@@ -27,6 +27,18 @@ class List
   arr
   end
 
+  define_method(:update) do |changes|
+    @name = changes[:name]
+    DB.exec("UPDATE lists SET name = '#{@name}' WHERE id = #{self.id};")
+  end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM lists WHERE id = #{self.id};")
+  end
+
+
+
+
 
 
 

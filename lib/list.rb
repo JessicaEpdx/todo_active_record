@@ -5,6 +5,7 @@ class List
   define_method(:initialize) do |attributes|
     @id = attributes.fetch(:id)
     @name = attributes.fetch(:name)
+
   end
 
   define_method(:save) do
@@ -35,13 +36,6 @@ class List
   define_method(:delete) do
     DB.exec("DELETE FROM lists WHERE id = #{self.id};")
   end
-
-
-
-
-
-
-
 
 
 

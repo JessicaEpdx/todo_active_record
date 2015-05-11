@@ -29,6 +29,17 @@ class Task
     self.description == other_task.description
   end
 
+  define_method(:delete) do
+    DB.exec("DELETE FROM tasks where id = #{self.id};")
+  end
+
+  define_method(:update) do |attributes|
+    @description = attributes.fetch(:description, @description)
+    @list_id = attributes.fetch(:list_id, @list_id)
+    DB.exec("UPDATE tasks SET description = '#{@description}' WHERE id = #{self.id};")
+    DB.exec("UPDATE tasks SET list_id = #{@list_id} WHERE id = #{self.id};")
+  end
+
 
 
 end
